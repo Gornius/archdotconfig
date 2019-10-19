@@ -48,7 +48,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher) (req: rofi)
-bindsym $mod+d exec rofi -show run
+bindsym $mod+d exec rofi -show drun
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -243,10 +243,10 @@ mode "$mode_gaps_outer" {
 # WORKSPACES CONFIG
 # ---------------------
 
-exec firefox
+exec --no-startup-id firefox
 assign [class="firefox"] $ws3 
 
-exec spotify
+exec --no-startup-id spotify
 for_window [class="Spotify"] move to workspace $ws9
 
 
@@ -262,12 +262,12 @@ gaps inner 10
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Launch wallpaper (req: feh)
-exec feh --bg-scale /usr/share/backgrounds/247.png
+exec --no-startup-id feh --bg-scale /usr/share/backgrounds/247.png
 
 
 
 # # Set pywal colors (req: pywal)
-exec_always wal -R
+exec_always --no-startup-id wal -R
 # Set colors from Xresources for i3 UI
 # # Change 'color7' and 'color2' to whatever colors you want i3 to use 
 # # from the generated scheme.
@@ -291,10 +291,10 @@ client.focused		#2d3e9c #2d3e9c #ffffff #2d3e9c #2d3e9c
 # Set no title bar
 new_window pixel 3
 # Launch compton (req: compton)
-exec compton
+exec --no-startup-id compton
 
 # Touchpad enable tapping (req: xf86-touchpad-synaptics)
-exec synclient TapButton1=1 TapButton2=3 TapButton3=2
+exec --no-startup-id synclient TapButton1=1 TapButton2=3 TapButton3=2
 
 
 # Media buttons
