@@ -301,8 +301,10 @@ client.focused		#2d3e9c #2d3e9c #ffffff #2d3e9c #2d3e9c
 
 # Set no title bar
 new_window pixel 3
-# Launch compton (req: compton)
-exec --no-startup-id compton
+
+# Launch and reload compton to prevent compton from breaking terminal transparency
+exec_always --no-startup-id pkill compton; compton -b
+
 
 # Touchpad enable tapping (req: xf86-touchpad-synaptics)
 exec --no-startup-id synclient TapButton1=1 TapButton2=3 TapButton3=2
