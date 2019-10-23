@@ -54,9 +54,10 @@ module-margin-right = 2
 font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
+font-3 = FontAwesome:size=14;1
 
 modules-left = bspwm i3
-modules-center = mpd
+modules-center = xwindow
 modules-right = pulseaudio memory cpu wlan eth battery temperature date powermenu
 
 tray-position = right
@@ -64,9 +65,9 @@ tray-padding = 2
 ;tray-background = #0063ff
 
 ;wm-restack = bspwm
-;wm-restack = i3
+:wm-restack = i3
 
-;override-redirect = true
+:override-redirect = true
 
 ;scroll-up = bspwm-desknext
 ;scroll-down = bspwm-deskprev
@@ -260,7 +261,7 @@ format-disconnected =
 type = internal/date
 interval = 5
 
-date =
+date = "%d.%m.%Yr."
 date-alt = " %Y-%m-%d"
 
 time = %H:%M

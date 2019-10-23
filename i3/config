@@ -29,7 +29,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -c 090909
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
+exec --no-startup-id nm-applet 
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -106,16 +106,16 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1: Terminal"
-set $ws2 "2: Code"
-set $ws3 "3: Firefox"
-set $ws4 "4: Game"
-set $ws5 "5: OBS"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9: Spotify"
-set $ws10 "10"
+set $ws1 "1:  "
+set $ws2 "2:  "
+set $ws3 "3:  "
+set $ws4 "4:  "
+set $ws5 "5:  "
+set $ws6 "6:  "
+set $ws7 "7:  "
+set $ws8 "8:  "
+set $ws9 "9:  "
+set $ws10 "10:  "
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -187,6 +187,12 @@ bindsym $mod+r mode "resize"
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
 
+# Restart NetworkManager
+bindsym $mod+F5 exec --no-startup-id sudo systemctl restart NetworkManager
+
+# Lock screen
+bindsym $mod+F1 exec --no-startup-id loginctl lock-session
+
 # ----------------
 # GAPS SHORTCUTS
 # ----------------
@@ -249,8 +255,8 @@ assign [class="firefox"] $ws3
 exec --no-startup-id spotify
 for_window [class="Spotify"] move to workspace $ws9
 
-
-
+assign [class="Steam"] $ws4
+assign [title="Steam"] $ws4
 
 
 
@@ -260,6 +266,11 @@ gaps inner 10
 
 # Launch polybar (req: polybar)
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+# Launch themed polybar
+# exec_always --no-startup-id $HOME/.config/polybar/polybar-6/launch.sh
+
+
 
 # Launch wallpaper (req: feh)
 exec --no-startup-id feh --bg-scale /usr/share/backgrounds/247.png
