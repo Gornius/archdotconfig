@@ -42,7 +42,8 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+# bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec xfce4-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -193,6 +194,9 @@ bindsym $mod+F5 exec --no-startup-id sudo systemctl restart NetworkManager
 # Lock screen
 bindsym $mod+F1 exec --no-startup-id loginctl lock-session
 
+# Launch xfce4-screenshooter
+bindsym $mod+Print exec --no-startup-id xfce4-screenshooter
+
 # ----------------
 # GAPS SHORTCUTS
 # ----------------
@@ -277,8 +281,9 @@ exec --no-startup-id feh --bg-scale /usr/share/backgrounds/247.png
 
 
 
-# # Set pywal colors (req: pywal)
-exec_always --no-startup-id wal -R
+# # Set wpgtk colors (req: wpgtk, possibly pywal)
+exec_always --no-startup-id wpg -s 247.png
+
 # Set colors from Xresources for i3 UI
 # # Change 'color7' and 'color2' to whatever colors you want i3 to use 
 # # from the generated scheme.
