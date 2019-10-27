@@ -250,6 +250,7 @@ mode "$mode_gaps_outer" {
 # edit /etc/systemd/logind.conf to disable lid close auto-sleep
 # dunst for notifications
 
+
 # ---------------------
 # WORKSPACES CONFIG
 # ---------------------
