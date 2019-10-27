@@ -248,6 +248,7 @@ mode "$mode_gaps_outer" {
 # lxappearance - Appearanace config
 # xset s SECONDS - screen timeout
 # edit /etc/systemd/logind.conf to disable lid close auto-sleep
+# dunst for notifications
 
 # ---------------------
 # WORKSPACES CONFIG
