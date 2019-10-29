@@ -183,20 +183,6 @@ bindsym $mod+r mode "resize"
 # }
 
 
-
-# Brightness control (req: xbacklight)
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
-
-# Restart NetworkManager
-bindsym $mod+F5 exec --no-startup-id sudo systemctl restart NetworkManager
-
-# Lock screen
-bindsym $mod+F1 exec --no-startup-id loginctl lock-session
-
-# Launch xfce4-screenshooter
-bindsym $mod+Print exec --no-startup-id xfce4-screenshooter
-
 # ----------------
 # GAPS SHORTCUTS
 # ----------------
@@ -264,8 +250,9 @@ for_window [class="Spotify"] move to workspace $ws9
 assign [class="Steam"] $ws4
 assign [title="Steam"] $ws4
 
-
-
+# ---------------
+# Appearance
+# ---------------
 
 # Set gaps
 gaps inner 10 
@@ -276,15 +263,14 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # Launch themed polybar
 # exec_always --no-startup-id $HOME/.config/polybar/polybar-6/launch.sh
 
-
-
 # Launch wallpaper (req: feh)
 exec --no-startup-id feh --bg-scale /usr/share/backgrounds/247.png
 
-
-
 # # Set wpgtk colors (req: wpgtk, possibly pywal)
 exec_always --no-startup-id wpg -s 247.png
+
+# Set no title bar
+new_window pixel 3
 
 # Set colors from Xresources for i3 UI
 # # Change 'color7' and 'color2' to whatever colors you want i3 to use 
@@ -306,18 +292,17 @@ exec_always --no-startup-id wpg -s 247.png
 client.focused		#2d3e9c #2d3e9c #ffffff #2d3e9c #2d3e9c 
 
 
-# Set no title bar
-new_window pixel 3
+
+
+# --------------------------
+# Desktop Environment Features
+# --------------------------
 
 # Launch and reload compton to prevent compton from breaking terminal transparency
 exec_always --no-startup-id pkill compton; compton -b
 
-
 # Touchpad enable tapping (req: xf86-touchpad-synaptics)
 exec --no-startup-id synclient TapButton1=1 TapButton2=3 TapButton3=2
-
-
-# Media buttons
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
@@ -327,3 +312,24 @@ bindsym XF86AudioPrev exec playerctl previous
 
 # Toggle Touchpad # Don't know the name of the key on my ASUS keyboard :/
 bindsym f21 exec $HOME$/.config/i3/toggle-touchpad.sh 
+
+#Launch policy kit
+exec --no-startup-id lxpolkit
+
+# Brightness control (req: xbacklight)
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
+
+# Lock screen
+bindsym $mod+F1 exec --no-startup-id loginctl lock-session
+
+# ----------------
+# CUSTOM KEYBINDINGS
+# ----------------
+
+# Restart NetworkManager
+bindsym $mod+F5 exec --no-startup-id sudo systemctl restart NetworkManager
+
+# Launch xfce4-screenshooter
+bindsym $mod+Print exec --no-startup-id xfce4-screenshooter
+
