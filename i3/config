@@ -303,6 +303,7 @@ exec_always --no-startup-id pkill compton; compton -b
 
 # Touchpad enable tapping (req: xf86-touchpad-synaptics)
 exec --no-startup-id synclient TapButton1=1 TapButton2=3 TapButton3=2
+#exec --no-startup-id syndaemon -m 500 -d -t -k
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
@@ -317,8 +318,8 @@ bindsym f21 exec $HOME$/.config/i3/toggle-touchpad.sh
 exec --no-startup-id lxpolkit
 
 # Brightness control (req: xbacklight)
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec xbacklight -inc 4 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 4 # decrease screen brightness
 
 # Lock screen
 bindsym $mod+F1 exec --no-startup-id loginctl lock-session
