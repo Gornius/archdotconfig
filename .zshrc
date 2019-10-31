@@ -1,3 +1,6 @@
+# Oh my ZSH
+export ZSH=/usr/share/oh-my-zsh
+
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000
@@ -11,22 +14,29 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-function powerline_precmd() {
-    PS1="$(powerline-shell --shell zsh $?)"
-}
+# -----------------
+# POWERLINE SHELL
+# -----------------
 
-function install_powerline_precmd() {
-  for s in "${precmd_functions[@]}"; do
-    if [ "$s" = "powerline_precmd" ]; then
-      return
-    fi
-  done
-  precmd_functions+=(powerline_precmd)
-}
 
-if [ "$TERM" != "linux" ]; then
-    install_powerline_precmd
-fi
+# function powerline_precmd() {
+#     PS1="$(powerline-shell --shell zsh $?)"
+# }
+# 
+# function install_powerline_precmd() {
+#   for s in "${precmd_functions[@]}"; do
+#     if [ "$s" = "powerline_precmd" ]; then
+#       return
+#     fi
+#   done
+#   precmd_functions+=(powerline_precmd)
+# }
+# 
+# if [ "$TERM" != "linux" ]; then
+#     install_powerline_precmd
+# fi
+
+
 
 # Import colorscheme from 'wal' asynchronously
 # &   # Run the process in the background.
@@ -38,9 +48,14 @@ fi
 zstyle ':completion:*' menu yes select
 
 #ALIASES
+
+# Edit i3conf
 alias i3vim='vim $HOME/.config/i3/config'
+# Use colors for grep
 alias grep='grep --color'
+# Use colors for ls
 alias ls='ls --color'
+# Always try to use -p
 alias mkdir='mkdir -pv'
 
 
@@ -91,6 +106,20 @@ if (( ${+terminfo[smkx]} && ${+terminfo[rmkx]} )); then
 fi
 
 
+# Bindkeys
+
 # Back / forward word with alt arrows
 bindkey "^[[1;3C" forward-word
 bindkey "^[[1;3D" backward-word
+
+
+# -----------------
+# OH_MY_ZSH CONFIG
+# -----------------
+
+export ZSH_THEME="robbyrussell"
+
+plugins=(
+  git
+  dotenv
+)

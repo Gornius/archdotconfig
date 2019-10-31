@@ -303,7 +303,8 @@ exec_always --no-startup-id pkill compton; compton -b
 
 # Touchpad enable tapping (req: xf86-touchpad-synaptics)
 exec --no-startup-id synclient TapButton1=1 TapButton2=3 TapButton3=2
-#exec --no-startup-id syndaemon -m 500 -d -t -k
+# Unfortunately, syndaemon makes using scripts to toggle touchpad impossible
+# exec --no-startup-id syndaemon -i 0.5 -t -K -R
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
@@ -312,7 +313,7 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # Toggle Touchpad # Don't know the name of the key on my ASUS keyboard :/
-bindsym f21 exec $HOME$/.config/i3/toggle-touchpad.sh 
+bindsym XF86TouchpadToggle exec sh $HOME$/.config/i3/toggle-touchpad.sh 
 
 #Launch policy kit
 exec --no-startup-id lxpolkit
