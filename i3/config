@@ -191,7 +191,8 @@ bindsym $mod+r mode "resize"
 set $mode_gaps Gaps: (o) outer, (i) inner
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
 set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-bindsym $mod+Shift+g mode "$mode_gaps"
+bindsym $mod+Shift+g mode "$mode_gaps"g exec --no-startup-id firefox
+bindsym mod+h exec --no-startup-id nautilus
 
 mode "$mode_gaps" {
         bindsym o      mode "$mode_gaps_outer"
@@ -335,3 +336,10 @@ bindsym $mod+F5 exec --no-startup-id sudo systemctl restart NetworkManager
 # Launch xfce4-screenshooter
 bindsym $mod+Print exec --no-startup-id xfce4-screenshooter
 
+
+# --------------------
+# APPS KEYBINDINGS
+# --------------------
+
+bindsym $mod+g exec --no-startup-id firefox
+bindsym $mod+t exec --no-startup-id nautilus
