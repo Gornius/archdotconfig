@@ -191,7 +191,7 @@ bindsym $mod+r mode "resize"
 set $mode_gaps Gaps: (o) outer, (i) inner
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
 set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-bindsym $mod+Shift+g mode "$mode_gaps"g exec --no-startup-id firefox
+bindsym $mod+Shift+g mode "$mode_gaps"
 bindsym mod+h exec --no-startup-id nautilus
 
 mode "$mode_gaps" {
