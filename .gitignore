@@ -7,5 +7,4 @@
 !.gitignore
 !dunst
 !.zshrc
-!fakeroot/usr/share/oh-my-zsh/themes
-!fakeroot/etc/NetworkManager
+!fakeroot
