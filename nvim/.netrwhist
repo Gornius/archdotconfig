@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/home/cisu/Documents/Code/lab3-live/3.4-minmax'
+let g:netrw_dirhist_2='/home/cisu/.config/polybar'
+let g:netrw_dirhist_1='/home/cisu/Documents/Code/lab3-live/3.2-triangleB'
