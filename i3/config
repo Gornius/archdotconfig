@@ -8,7 +8,7 @@
 # pavucontrol - audio settings
 # rofi
 # neovim
-# compton
+# picom (formely compton) 
 
 # ---------------------
 # ADDITIONAL CONFIG
@@ -64,8 +64,8 @@ client.focused		#2d3e9c #2d3e9c #ffffff #2d3e9c #2d3e9c
 # Rebind Caps Lock to Escape
 exec --no-startup-id setxkbmap -option "caps:escape"
 
-# Launch and reload compton to prevent compton from breaking terminal transparency
-exec_always --no-startup-id pkill compton; compton -b
+# Launch and reload picom to prevent picom from breaking terminal transparency
+exec_always --no-startup-id pkill picom; picom -b --experimental-backends
 
 # Touchpad enable tapping (req: xf86-touchpad-synaptics)
 exec --no-startup-id synclient TapButton1=1 TapButton2=3 TapButton3=2
@@ -121,7 +121,7 @@ bindsym $mod+F5 exec --no-startup-id sudo systemctl restart NetworkManager
 bindsym $mod+Print exec --no-startup-id xfce4-screenshooter
 
 # Toggle comtpon
-bindsym $mod+grave exec "bash -c 'if ! pkill -x compton; then exec compton; fi'"
+bindsym $mod+grave exec "bash -c 'if ! pkill -x picom; then exec picom --experimental-backends -b; fi'"
 
 # --------------------
 # APPS KEYBINDINGS
