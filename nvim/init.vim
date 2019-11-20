@@ -10,6 +10,19 @@
 " | | | | | | |_ 
 " |_|_| |_|_|\__|
 
+" Plugin manager
+call plug#begin('~/.local/share/nvim/plugged')
+
+Plug 'davidhalter/jedi-vim'
+Plug 'dylanaraps/wal.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-scripts/sudo.vim'
+
+call plug#end()
+
+" Use pywal colorscheme
+colorscheme wal
+
 " Map leader key to ','
 let mapleader = ","
 
@@ -18,6 +31,10 @@ set clipboard=unnamedplus
 
 " Use ruler with relative numbers
 set number relativenumber
+
+" Set text margin and auto-wrapping
+set textwidth=79
+set colorcolumn=80
 
 " Ignore case, unless it's capital
 set ignorecase
