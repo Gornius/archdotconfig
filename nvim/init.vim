@@ -17,6 +17,7 @@ Plug 'davidhalter/jedi-vim'
 Plug 'dylanaraps/wal.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-scripts/sudo.vim'
+Plug 'lervag/vimtex'
 
 call plug#end()
 

@@ -28,7 +28,7 @@
 ; secondary = #e60053
 ; alert = #bd2c40
 
-PywalColors
+;PywalColors
 [colors]
 background = ${xrdb:background:#222}
 background-alt = #1f1f1f
@@ -220,7 +220,7 @@ type = internal/cpu
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #f90000
+format-underline = ${xrdb:color1:#f9ff00}
 label = %percentage:2%%
 
 [module/memory]
@@ -228,7 +228,7 @@ type = internal/memory
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #4bffdc
+format-underline = ${xrdb:color2:#4bffdc}
 label = %percentage_used%%
 
 [module/wlan]
@@ -237,7 +237,7 @@ interface = wlan0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
-format-connected-underline = #9f78e1
+format-connected-underline = ${xrdb:color3:#9f78e1}
 label-connected = %essid%
 
 format-disconnected =
@@ -258,7 +258,7 @@ type = internal/network
 interface = enp2s0
 interval = 3.0
 
-format-connected-underline = #55aa55
+format-connected-underline = ${xrdb:color4:#55aa55}
 format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected = %local_ip%
@@ -281,7 +281,7 @@ time-alt = %H:%M:%S
 
 format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #0a6cf5
+format-underline = ${xrdb:color5:#0a6cf5}
 
 label = %date% %time%
 
@@ -347,7 +347,7 @@ adapter = AC0
 full-at = 96
 
 format-charging = <animation-charging> <label-charging>
-format-charging-underline = #ffb52a
+format-charging-underline = ${xrdb:color6:#ffb52a}
 
 format-discharging = <animation-discharging> <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
@@ -379,7 +379,7 @@ thermal-zone = 0
 warn-temperature = 60
 
 format = <ramp> <label>
-format-underline = #f50a4d
+format-underline = ${xrdb:color7:#f50a4d}
 format-warn = <ramp> <label-warn>
 format-warn-underline = ${self.format-underline}
 

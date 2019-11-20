@@ -9,5 +9,6 @@ discord/**
 !.gitignore
 !dunst/**
 !.zshrc
+!.vimrc
 !fakeroot/**
 !nvim/**

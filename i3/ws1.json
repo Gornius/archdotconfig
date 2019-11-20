@@ -1,0 +1,76 @@
+// vim:ts=4:sw=4:et
+{
+    "border": "pixel",
+    "current_border_width": 3,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 1152,
+       "width": 1536,
+       "x": 0,
+       "y": 0
+    },
+    "name": "i3-save-tree --workspace 1 > .config/i3/ws1.json",
+    "percent": 0.5,
+    "swallows": [
+       {
+       // "class": "^Alacritty$",
+       // "instance": "^Alacritty$",
+       // "title": "^i3\\-save\\-tree\\ \\-\\-workspace\\ 1\\ \\>\\ \\.config\\/i3\\/ws1\\.json$"
+       }
+    ],
+    "type": "con"
+}
+
+{
+    // splitv split container with 2 children
+    "border": "pixel",
+    "floating": "auto_off",
+    "layout": "splitv",
+    "percent": 0.5,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "pixel",
+            "current_border_width": 3,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 1152,
+               "width": 1536,
+               "x": 0,
+               "y": 0
+            },
+            "name": "cisu@gorniux-arch: ~",
+            "percent": 0.6,
+            "swallows": [
+               {
+               // "class": "^Alacritty$",
+               // "instance": "^Alacritty$",
+               // "title": "^cisu\\@gorniux\\-arch\\:\\ \\~$"
+               }
+            ],
+            "type": "con"
+        },
+        {
+            "border": "pixel",
+            "current_border_width": 3,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 1152,
+               "width": 1536,
+               "x": 0,
+               "y": 0
+            },
+            "name": "htop",
+            "percent": 0.4,
+            "swallows": [
+               {
+               // "class": "^Alacritty$",
+               // "instance": "^Alacritty$",
+               // "title": "^htop$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+
