@@ -20,8 +20,8 @@
 # WORKSPACES CONFIG
 # ---------------------
 
-exec --no-startup-id firefox
-assign [class="firefox"] $ws3 
+exec --no-startup-id $browser
+assign [class="Chromium"] $ws3 
 
 exec --no-startup-id spotify
 for_window [class="Spotify"] move to workspace $ws9
@@ -42,8 +42,8 @@ gaps inner 10
 # Launch polybar (req: polybar)
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
-# Launch wallpaper (req: feh)
-exec --no-startup-id feh --bg-scale /usr/share/backgrounds/247.png
+# Launch wallpaper (req: feh) unneeded when using wal
+# exec_always --no-startup-id feh --bg-scale /home/cisu/.backgrounds/synth_city.jpg 
 
 # Set pywal colors (req: pywal)
 exec_always --no-startup-id wal -R 
@@ -126,8 +126,8 @@ bindsym $mod+grave exec "bash -c 'if ! pkill -x picom; then exec picom --experim
 # --------------------
 # APPS KEYBINDINGS
 # --------------------
-
-bindsym		$mod+g exec --no-startup-id		firefox
+set $browser 	"chromium --force-dark-mode --enable-features=WebUIDarkMode --ignore-gpu-blacklist"
+bindsym		$mod+g exec --no-startup-id		$browser
 bindsym		$mod+t exec --no-startup-id		nautilus
 bindsym		$mod+Return exec --no-startup-id	i3-sensible-terminal &
 # --------------------------
@@ -200,7 +200,7 @@ bindsym $mod+a focus parent
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1:  "
 set $ws2 "2:  "
-set $ws3 "3:  "
+set $ws3 "3:  "
 set $ws4 "4:  "
 set $ws5 "5:  "
 set $ws6 "6:  "

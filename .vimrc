@@ -98,18 +98,23 @@ set colorcolumn=80
 nnoremap D "_D
 nnoremap d "_d
 nnoremap x "_x
+nnoremap c "_c
+nnoremap C "_C
 
 vnoremap d "_d
 vnoremap x "_x
+vnoremap c "_c
 
 " Unless it's with leader key
 nnoremap <leader>D "+D
 nnoremap <leader>d "+d
 nnoremap <leader>x "+x
-Plug 'vim-scripts/sudo.vim'
+nnoremap <leader>c "+c
+nnoremap <leader>C "+C
 
 vnoremap <leader>d "+d
 vnoremap <leader>x "+x
+vnoremap <leader>c "+c
 
 " LaTeX settings
 let g:livepreview_previewer = 'evince'
