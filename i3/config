@@ -1,8 +1,17 @@
+#
+#  ____          _                    _ _____                    __ _         
+# / ___|   _ ___| |_ ___  _ __ ___   (_)___ /    ___ ___  _ __  / _(_) __ _ _ 
+#| |  | | | / __| __/ _ \| '_ ` _ \  | | |_ \   / __/ _ \| '_ \| |_| |/ _` (_)
+#| |__| |_| \__ \ || (_) | | | | | | | |___) | | (_| (_) | | | |  _| | (_| |_ 
+# \____\__,_|___/\__\___/|_| |_| |_| |_|____/   \___\___/|_| |_|_| |_|\__, (_)
+#                                                                     |___/   
+#
+
 # ---------------------
 # ADDITIONAL TOOLS
 # ---------------------
 # lxappearance - Appearanace config
-# dunst for notifications
+# xfce4-notifyd - notification daemon
 # xss-lock for handling locking with i3lock
 # i3lock
 # pavucontrol - audio settings
@@ -15,6 +24,33 @@
 # ---------------------
 # xset s SECONDS - screen timeout
 # edit /etc/systemd/logind.conf to disable lid close auto-sleep
+# fix QCA9377 WiFi Card:
+# sudo pacman -U https://archive.archlinux.org/packages/l/linux-firmware/linux-firmware-20180825.fea76a0-1-any.pkg.tar.xz 
+
+# ----------------
+# CUSTOM KEYBINDINGS
+# ----------------
+
+# start rofi (a program launcher) (req: rofi)
+bindsym $mod+d exec rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -columns 3 -show-icons
+
+# Restart NetworkManager
+bindsym $mod+F5 exec --no-startup-id sudo systemctl restart NetworkManager
+
+# Launch xfce4-screenshooter
+bindsym $mod+Print exec --no-startup-id xfce4-screenshooter
+
+# Toggle picom
+bindsym $mod+grave exec "bash -c 'if ! pkill -x picom; then exec picom --experimental-backends -b; fi'"
+
+# --------------------
+# APPS KEYBINDINGS
+# --------------------
+set $browser 		"gtk-launch chromium.desktop"
+set $file-explorer 	"gtk-launch thunar.desktop"
+bindsym		$mod+g exec --no-startup-id		$browser
+bindsym		$mod+t exec --no-startup-id		$file-explorer
+bindsym		$mod+Return exec --no-startup-id	i3-sensible-terminal &
 
 # ---------------------
 # WORKSPACES CONFIG
@@ -107,32 +143,20 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
-# start rofi (a program launcher) (req: rofi)
-bindsym $mod+d exec rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -columns 3 -show-icons
 
-# ----------------
-# CUSTOM KEYBINDINGS
-# ----------------
+# Start notification daemon
+exec --no-startup-id systemctl --user start xfce4-notifyd
 
-# Restart NetworkManager
-bindsym $mod+F5 exec --no-startup-id sudo systemctl restart NetworkManager
+# Start redshift
+exec --no-startup-id redshift
 
-# Launch xfce4-screenshooter
-bindsym $mod+Print exec --no-startup-id xfce4-screenshooter
+#   ____                 _ _____                    __ _       
+#  / ___|___  _ __ ___  (_)___ /    ___ ___  _ __  / _(_) __ _ 
+# | |   / _ \| '__/ _ \ | | |_ \   / __/ _ \| '_ \| |_| |/ _` |
+# | |__| (_) | | |  __/ | |___) | | (_| (_) | | | |  _| | (_| |
+#  \____\___/|_|  \___| |_|____/   \___\___/|_| |_|_| |_|\__, |
+#                                                        |___/ 
 
-# Toggle comtpon
-bindsym $mod+grave exec "bash -c 'if ! pkill -x picom; then exec picom --experimental-backends -b; fi'"
-
-# --------------------
-# APPS KEYBINDINGS
-# --------------------
-set $browser 	"chromium --force-dark-mode --enable-features=WebUIDarkMode --ignore-gpu-blacklist"
-bindsym		$mod+g exec --no-startup-id		$browser
-bindsym		$mod+t exec --no-startup-id		nautilus
-bindsym		$mod+Return exec --no-startup-id	i3-sensible-terminal &
-# --------------------------
-# CORE I3 CONFIG
-# --------------------------
 
 # Set "Win" as mod key
 set $mod Mod4
