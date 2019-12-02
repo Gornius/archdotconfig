@@ -31,8 +31,11 @@
 # CUSTOM KEYBINDINGS
 # ----------------
 
+# Switch GPU with optimus-manager
+bindsym $mod+m exec echo -e "intel\nnvidia" | rofi -dmenu -p "To which gpu switch to?" | xargs -I{} optimus-manager --switch {} --no-confirm
+
 # start rofi (a program launcher) (req: rofi)
-bindsym $mod+d exec rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -columns 3 -show-icons
+bindsym $mod+d exec rofi -show drun
 
 # Restart NetworkManager
 bindsym $mod+F5 exec --no-startup-id sudo systemctl restart NetworkManager
@@ -101,7 +104,7 @@ client.focused		#2d3e9c #2d3e9c #ffffff #2d3e9c #2d3e9c
 exec --no-startup-id setxkbmap -option "caps:escape"
 
 # Launch and reload picom to prevent picom from breaking terminal transparency
-exec_always --no-startup-id pkill picom; picom -b --experimental-backends
+exec_always --no-startup-id pkill picom &; picom -b --experimental-backends &
 
 # Touchpad enable tapping (req: xf86-touchpad-synaptics)
 exec --no-startup-id synclient TapButton1=1 TapButton2=3 TapButton3=2
