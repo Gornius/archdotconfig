@@ -13,3 +13,5 @@ discord/**
 !fakeroot/**
 !nvim/**
 !scripts/**
+!alacritty/**
+
