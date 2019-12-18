@@ -1,0 +1,12 @@
+[Trigger]
+Operation=Install
+Operation=Upgrade
+Type=Package
+Target=linux-firmware
+Target=linux-firmware-git
+Target=linux-firmware-ltsb
+
+[Action]
+Description=Removing firmware-6.bin from QCA9377 firmware (wifi-workaround)...
+When=PostTransaction
+Exec=/usr/bin/rm /usr/lib/firmware/ath10k/QCA9377/hw1.0/firmware-6.bin

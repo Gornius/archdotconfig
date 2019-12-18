@@ -32,7 +32,7 @@
 # ----------------
 
 # Switch GPU with optimus-manager
-bindsym $mod+m exec echo -e "intel\nnvidia" | rofi -dmenu -p "To which gpu switch to?" | xargs -I{} optimus-manager --switch {} --no-confirm
+bindsym $mod+m exec echo "intel\nhybrid" | rofi -dmenu -p "GPU Switcher" | xargs -I{} optimus-manager --switch {} --no-confirm
 
 # start rofi (a program launcher) (req: rofi)
 bindsym $mod+d exec rofi -show drun
@@ -44,13 +44,14 @@ bindsym $mod+F5 exec --no-startup-id sudo systemctl restart NetworkManager
 bindsym $mod+Print exec --no-startup-id xfce4-screenshooter
 
 # Toggle picom
-bindsym $mod+grave exec "bash -c 'if ! pkill -x picom; then exec picom --experimental-backends -b; fi'"
+bindsym $mod+grave exec --no-startup-id $HOME/.config/scripts/toggle-picom.sh 
 
 # --------------------
 # APPS KEYBINDINGS
 # --------------------
 set $browser 		"gtk-launch chromium.desktop"
 set $file-explorer 	"gtk-launch thunar.desktop"
+
 bindsym		$mod+g exec --no-startup-id		$browser
 bindsym		$mod+t exec --no-startup-id		$file-explorer
 bindsym		$mod+Return exec --no-startup-id	i3-sensible-terminal &
@@ -59,17 +60,19 @@ bindsym		$mod+Return exec --no-startup-id	i3-sensible-terminal &
 # WORKSPACES CONFIG
 # ---------------------
 
-exec --no-startup-id $browser
+# exec --no-startup-id $browser
 assign [class="Chromium"] $ws3 
 
-exec --no-startup-id spotify
+exec --no-startup-id discord
+assign [class="discord"] $ws8
+
+# exec --no-startup-id spotify
 for_window [class="Spotify"] move to workspace $ws9
 
 assign [class="Steam"] $ws4
 assign [title="Steam"] $ws4
 
-exec --no-startup-id discord
-assign [class="discord"] $ws8
+# for_window [class="Steam" && title="Friends List"] floating enable
 
 # ---------------
 # Appearance
@@ -78,7 +81,7 @@ assign [class="discord"] $ws8
 # Set gaps
 gaps inner 10 
 
-# Launch polybar (req: polybar)
+# Launch polybar (req: polybar) (moved to i3 blocks)
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Launch wallpaper (req: feh) unneeded when using wal
@@ -104,7 +107,7 @@ client.focused		#2d3e9c #2d3e9c #ffffff #2d3e9c #2d3e9c
 exec --no-startup-id setxkbmap -option "caps:escape"
 
 # Launch and reload picom to prevent picom from breaking terminal transparency
-exec_always --no-startup-id pkill picom &; picom -b --experimental-backends &
+exec_always --no-startup-id pkill picom; picom -b --experimental-backends &
 
 # Touchpad enable tapping (req: xf86-touchpad-synaptics)
 exec --no-startup-id synclient TapButton1=1 TapButton2=3 TapButton3=2
@@ -296,8 +299,13 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
+
 # bar {
-#         status_command i3status
+# 	colors {
+# 	background #222222
+# 	}
+# 	position top
+#         status_command SCRIPT_DIR=/home/cisu/.config/i3blocks i3blocks 
 # }
 
 

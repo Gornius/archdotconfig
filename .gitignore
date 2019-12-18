@@ -12,3 +12,4 @@ discord/**
 !.vimrc
 !fakeroot/**
 !nvim/**
+!scripts/**
