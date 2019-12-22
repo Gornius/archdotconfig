@@ -114,6 +114,9 @@ exec --no-startup-id synclient TapButton1=1 TapButton2=3 TapButton3=2
 # Unfortunately, syndaemon makes using scripts to toggle touchpad impossible
 # exec --no-startup-id syndaemon -i 0.5 -t -K -R
 
+# Use imwheel to increase mouse wheel scrolling speed:
+imwheel --kill
+
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
 bindsym XF86AudioPause exec playerctl pause
