@@ -115,7 +115,7 @@ exec --no-startup-id synclient TapButton1=1 TapButton2=3 TapButton3=2
 # exec --no-startup-id syndaemon -i 0.5 -t -K -R
 
 # Use imwheel to increase mouse wheel scrolling speed:
-imwheel --kill
+# exec --no-startup-id imwheel --kill
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
