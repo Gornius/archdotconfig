@@ -1,0 +1,48 @@
+Alacritty.font: xft:Hack:size=11
+rofi.separator-style:   dash
+rofi.fullscreen:        true
+rofi.padding:           400
+rofi.lines: 		1 
+rofi.columns: 		2
+rofi.hide-scrollbar:    true
+rofi.line-margin:       5
+rofi.fake-transparency: false
+rofi.yoffset:           0
+rofi.xoffset:           0
+rofi.opacity:           95
+rofi.color-enabled:     true
+!                       'background', 'border'
+rofi.color-window:      argb:dc111111, argb:dc111111
+! State:                'bg',          'fg',   'bgalt',       'hlbg',        'hlfg'
+rofi.color-normal:      argb:00333333, #ffffff, argb:00333333, argb:00333333, argb:ffefa211
+rofi.color-urgent:      argb:00333333, #ffffff, argb:00333333, argb:00333333, argb:ffefa211
+rofi.color-active:      argb:00333333, #ffffff, argb:00333333, argb:00333333, argb:ffefa211
+! +++++++++++++++++++++++++++++++++++++++++
+! +          Rofi color theme             +
+! +++++++++++++++++++++++++++++++++++++++++
+! 
+! rofi.color-enabled: true
+! 
+! ! Window:           'background',  'border', 'separator'
+! rofi.color-window: argb:cc252936,  #9575cd, argb:ffffffff
+! 
+! !   State:              'bg',       'fg',   'altbg',        'hlbg',         hlfg
+! rofi.color-normal: argb:00252936, #ffffff, argb:00252936, argb:009575cd, #ff9575cd
+! rofi.color-active: argb:00252936, #252936, argb:00252936, argb:009575cd, #ffc000
+! rofi.color-urgent: argb:00252936, #ff0000, argb:00252936, argb:00252936, #ff0000
+! 
+! rofi.width: 95 
+! rofi.height: 100
+! rofi.padding: 18
+! rofi.line-margin: 15
+! rofi.lines: 12
+! rofi.location: 0
+! rofi.separator-style: none
+! rofi.columns: 3
+! rofi.font: Noto Sans 12
+! rofi.bw: 0
+! rofi.eh: 2
+! rofi.hide-scrollbar: true
+! rofi.show-icons: true
+! !rofi.auto-select: false 
+! rofi.display-drun:Launch

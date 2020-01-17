@@ -15,4 +15,4 @@ discord/**
 !nvim/**
 !scripts/**
 !alacritty/**
-
+!.Xresources

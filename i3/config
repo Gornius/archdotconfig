@@ -140,7 +140,7 @@ bindsym $mod+F1 exec --no-startup-id loginctl lock-session
 exec --no-startup-id xfce4-clipman &
 
 # Use xss-lock to setup lockscreen
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -c 090909 
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock-fancy-rapid 20 5
 
 # Start network-manager applet (tray indicator
 exec --no-startup-id nm-applet &
