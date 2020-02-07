@@ -9,7 +9,7 @@ ZSH_CUSTOM=$HOME/.local/share/oh-my-zsh/custom
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="agnoster-cisu"
+ZSH_THEME="agnoster"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -99,7 +99,7 @@ plugins=(git)
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # alias svim="sudo nvim"
 svim () {
-	nvim sudo:$@
+	vim sudo:$@
 }
 
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
@@ -150,7 +150,7 @@ compinit
 # Import colorscheme from 'wal' asynchronously
 # &   # Run the process in the background.
 # ( ) # Hide shell job control messages.
-(cat ~/.cache/wal/sequences &)
+# (cat ~/.cache/wal/sequences &)
 
 # Completion style: menu
 zstyle ':completion:*' menu yes select
@@ -167,6 +167,7 @@ alias ls='ls --color'
 alias mkdir='mkdir -pv'
 # Connect to mcsv
 alias mcssh='ssh -i .ssh/mcssh -l ninertominer 34.65.137.164'
+alias monikassh='ssh -l op -i .ssh/monikamc 34.89.237.250'
 
 # create a zkbd compatible hash;
 # to add other keys to this hash, see: man 5 terminfo

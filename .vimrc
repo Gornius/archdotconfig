@@ -7,10 +7,13 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'vim-airline/vim-airline'
+Plug 'morhetz/gruvbox'
 Plug 'dylanaraps/wal.vim'
 Plug 'xuhdev/vim-latex-live-preview'
 Plug 'vim-scripts/sudo.vim'
 Plug 'lervag/vimtex'
+Plug 'nightsense/carbonized'
+Plug 'danilo-augusto/vim-afterglow'
 
 call plug#end()
 
@@ -77,9 +80,17 @@ set number relativenumber
 " | |   | | | \___ \ | || | | | |\/| | | | | | |_) || |  | | | | |  \| \___ \ 
 " | |___| |_| |___) || || |_| | |  | | | |_| |  __/ | |  | | |_| | |\  |___) |
 "  \____|\___/|____/ |_| \___/|_|  |_|  \___/|_|    |_| |___\___/|_| \_|____/ 
+"
 
-" Use pywal colorscheme
-colorscheme wal
+" Better colors
+set termguicolors                    " Enable GUI colors for the terminal to get truecolor
+
+" Use colorscheme
+colorscheme gruvbox
+set bg=dark
+
+" Transparent background
+hi Normal guibg=NONE ctermbg=NONE
 
 " Immediately jump to search
 set incsearch
@@ -93,6 +104,10 @@ set clipboard=unnamedplus
 " Set text margin and auto-wrapping
 set textwidth=79
 set colorcolumn=80
+
+" Format options for autowrapping not used due to messing with lines :/
+" set fo+=aw
+
 
 " Remap delete commands not to copy things to clipboard
 nnoremap D "_D

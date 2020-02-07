@@ -103,6 +103,10 @@ client.focused		#2d3e9c #2d3e9c #ffffff #2d3e9c #2d3e9c
 # Desktop Environment Features
 # --------------------------
 
+# Set timeout for screen dim and lock
+exec --no-startup-id xset dpms 0 0 0
+exec --no-startup-id xset s 0
+
 # Rebind Caps Lock to Escape
 exec --no-startup-id setxkbmap -option "caps:escape"
 
@@ -123,8 +127,8 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-# Toggle Touchpad # Don't know the name of the key on my ASUS keyboard :/
-bindsym XF86TouchpadToggle exec sh $HOME$/.config/i3/toggle-touchpad.sh 
+# Toggle Touchpad 
+bindsym XF86TouchpadToggle exec --no-startup-id sh /usr/local/bin/touchpad_toggle.sh &  
 
 #Launch policy kits
 exec --no-startup-id lxpolkit
@@ -140,7 +144,7 @@ bindsym $mod+F1 exec --no-startup-id loginctl lock-session
 exec --no-startup-id xfce4-clipman &
 
 # Use xss-lock to setup lockscreen
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock-fancy-rapid 20 5
+exec_always --no-startup-id xss-lock --transfer-sleep-lock -- i3lock-fancy-rapid 20 5
 
 # Start network-manager applet (tray indicator
 exec --no-startup-id nm-applet &
