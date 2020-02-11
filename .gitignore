@@ -16,3 +16,6 @@ discord/**
 !scripts/**
 !alacritty/**
 !.Xresources
+!pkglist.txt
+!.conky/**
+!.conkyrc

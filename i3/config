@@ -18,6 +18,10 @@
 # rofi
 # neovim
 # picom (formely compton) 
+# conky - display widget
+# ueberzug - for displaying previews in ranger
+
+
 
 # ---------------------
 # ADDITIONAL CONFIG
@@ -85,17 +89,37 @@ gaps inner 10
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Launch wallpaper (req: feh) unneeded when using wal
-# exec_always --no-startup-id feh --bg-scale /home/cisu/.backgrounds/synth_city.jpg 
+exec_always --no-startup-id $HOME/.fehbg 
+
+# Launch conky
+exec --no-startup-id conky &
 
 # Set pywal colors (req: pywal)
-exec_always --no-startup-id wal -R 
+# exec_always --no-startup-id wal -R 
 
 # Set no title bar
 new_window pixel 3
 
 # Border color
-client.focused		#2d3e9c #2d3e9c #ffffff #2d3e9c #2d3e9c 
+# client.focused		#2d3e9c #2d3e9c #ffffff #2d3e9c #2d3e9c 
 
+# Set colors from Xresources
+# Change 'color7' and 'color2' to whatever colors you want i3 to use 
+# from the generated scheme.
+# NOTE: The '#f0f0f0' in the lines below is the color i3 will use if
+# it fails to get colors from Xresources.
+set_from_resource $fg i3wm.color7 #f0f0f0
+set_from_resource $bg i3wm.color4 #f0f0ff
+set_from_resource $bg2 i3wm.color0 #f0f0f0
+
+# class                 border  backgr. text indicator child_border
+client.focused          $bg     $bg     $fg  $bg       $bg
+client.focused_inactive $bg     $bg     $fg  $bg       $bg
+client.unfocused        $bg2    $bg2    $fg  $bg2      $bg2
+client.urgent           $bg     $bg     $fg  $bg       $bg
+client.placeholder      $bg     $bg     $fg  $bg       $bg
+
+client.background       $bg
 
 
 
