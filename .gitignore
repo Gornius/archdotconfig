@@ -19,3 +19,4 @@ discord/**
 !pkglist.txt
 !.conky/**
 !.conkyrc
+!.vim/**
