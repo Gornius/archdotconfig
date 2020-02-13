@@ -155,6 +155,13 @@ compinit
 # Completion style: menu
 zstyle ':completion:*' menu yes select
 
+# vi mode
+bindkey -v
+export KEYTIMEOUT=1
+
+#allow use of backspace in insert mode
+bindkey "^?" backward-delete-char
+
 #ALIASES
 
 # Edit i3conf

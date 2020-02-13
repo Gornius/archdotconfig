@@ -50,6 +50,7 @@ height = 27
 radius = 0.0
 ; Default is 6.0
 fixed-center = false
+; bottom = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -80,9 +81,9 @@ tray-padding = 8
 ;tray-background = #0063ff
 
 ;wm-restack = bspwm
-:wm-restack = i3
+;wm-restack = i3
 
-:override-redirect = true
+;override-redirect = true
 
 ;scroll-up = bspwm-desknext
 ;scroll-down = bspwm-deskprev

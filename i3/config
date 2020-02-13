@@ -114,7 +114,7 @@ set_from_resource $bg2 i3wm.color0 #f0f0f0
 
 # class                 border  backgr. text indicator child_border
 client.focused          $bg     $bg     $fg  $bg       $bg
-client.focused_inactive $bg     $bg     $fg  $bg       $bg
+client.focused_inactive $bg2    $bg2    $fg  $bg2      $bg2
 client.unfocused        $bg2    $bg2    $fg  $bg2      $bg2
 client.urgent           $bg     $bg     $fg  $bg       $bg
 client.placeholder      $bg     $bg     $fg  $bg       $bg
@@ -152,7 +152,7 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # Toggle Touchpad 
-bindsym XF86TouchpadToggle exec --no-startup-id sh /usr/local/bin/touchpad_toggle.sh &  
+bindsym XF86TouchpadToggle exec --no-startup-id sh $HOME/.config/scripts/toggle-touchpad.sh &  
 
 #Launch policy kits
 exec --no-startup-id lxpolkit
