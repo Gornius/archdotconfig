@@ -1,3 +1,5 @@
+! vim: fdm=marker
+! gruvbox {{{
 ! -----------------------------------------------------------------------------
 ! File: gruvbox-dark.xresources
 ! Description: Retro groove colorscheme generalized
@@ -7,7 +9,7 @@
 ! -----------------------------------------------------------------------------
 
 ! hard contrast: *background: #1d2021
-*background: #0a0a0a
+*background: #282828
 ! soft contrast: *background: #32302f
 *foreground: #ebdbb2
 ! Black + DarkGrey
@@ -34,3 +36,4 @@
 ! LightGrey + White
 *color7:  #a89984
 *color15: #ebdbb2
+! }}}

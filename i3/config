@@ -1,12 +1,5 @@
-#
-#  ____          _                    _ _____                    __ _         
-# / ___|   _ ___| |_ ___  _ __ ___   (_)___ /    ___ ___  _ __  / _(_) __ _ _ 
-#| |  | | | / __| __/ _ \| '_ ` _ \  | | |_ \   / __/ _ \| '_ \| |_| |/ _` (_)
-#| |__| |_| \__ \ || (_) | | | | | | | |___) | | (_| (_) | | | |  _| | (_| |_ 
-# \____\__,_|___/\__\___/|_| |_| |_| |_|____/   \___\___/|_| |_|_| |_|\__, (_)
-#                                                                     |___/   
-#
-
+# Intro section {{{
+# vim: fdm=marker
 # ---------------------
 # ADDITIONAL TOOLS
 # ---------------------
@@ -21,8 +14,6 @@
 # conky - display widget
 # ueberzug - for displaying previews in ranger
 
-
-
 # ---------------------
 # ADDITIONAL CONFIG
 # ---------------------
@@ -31,6 +22,8 @@
 # fix QCA9377 WiFi Card:
 # sudo pacman -U https://archive.archlinux.org/packages/l/linux-firmware/linux-firmware-20180825.fea76a0-1-any.pkg.tar.xz 
 
+# }}}
+# Keybinding section {{{
 # ----------------
 # CUSTOM KEYBINDINGS
 # ----------------
@@ -78,6 +71,8 @@ assign [title="Steam"] $ws4
 
 # for_window [class="Steam" && title="Friends List"] floating enable
 
+# }}}
+# Appearance section {{{
 # ---------------
 # Appearance
 # ---------------
@@ -122,13 +117,14 @@ client.placeholder      $bg     $bg     $fg  $bg       $bg
 client.background       $bg
 
 
-
+# }}}
+# Desktop Features Section {{{
 # --------------------------
 # Desktop Environment Features
 # --------------------------
 
 # Set timeout for screen dim and lock
-exec --no-startup-id xset dpms 0 0 0
+exec --no-startup-id xset dpms 120 0 0
 exec --no-startup-id xset s 0
 
 # Rebind Caps Lock to Escape
@@ -186,7 +182,8 @@ exec --no-startup-id systemctl --user start xfce4-notifyd
 
 # Start redshift
 exec --no-startup-id redshift
-
+# }}}
+# Core i3 config section {{{
 #   ____                 _ _____                    __ _       
 #  / ___|___  _ __ ___  (_)___ /    ___ ___  _ __  / _(_) __ _ 
 # | |   / _ \| '__/ _ \ | | |_ \   / __/ _ \| '_ \| |_| |/ _` |
@@ -381,3 +378,4 @@ mode "$mode_gaps_outer" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
+# }}}

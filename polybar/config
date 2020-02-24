@@ -74,7 +74,7 @@ font-3 = FontAwesome:size=14;1
 
 modules-left = bspwm i3
 modules-center = xwindow
-modules-right = pulseaudio memory cpu wlan eth battery temperature date
+modules-right = mpd pulseaudio memory cpu wlan eth battery temperature date
 
 tray-position = right
 tray-padding = 8
@@ -96,7 +96,7 @@ cursor-scroll = ns-resize
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:60:...%
+label = "%title:0:60:...%"
 
 [module/xkeyboard]
 type = internal/xkeyboard
@@ -187,6 +187,7 @@ label-urgent-padding = 2
 [module/mpd]
 type = internal/mpd
 format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
+format-underline = ${xrdb:color2:#4bffdc}
 
 icon-prev = 
 icon-stop = 

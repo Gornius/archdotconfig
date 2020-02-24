@@ -98,8 +98,12 @@ plugins=(git)
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # alias svim="sudo nvim"
-svim () {
+svim() {
 	vim sudo:$@
+}
+
+ytdm() {
+	youtube-dl -f 140 "ytsearch1:$*"
 }
 
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
@@ -131,7 +135,6 @@ compinit
 # function powerline_precmd() {
 #     PS1="$(powerline-shell --shell zsh $?)"
 # }
-# 
 # function install_powerline_precmd() {
 #   for s in "${precmd_functions[@]}"; do
 #     if [ "$s" = "powerline_precmd" ]; then
