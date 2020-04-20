@@ -11,8 +11,10 @@ call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'morhetz/gruvbox'
 Plug 'vim-scripts/sudo.vim'
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
+
 " }}}
 " Paste from example vimrc {{{
 "   ___  ____ _____ ___ ___  _   _ ____    _____ ____   ___  __  __ 
@@ -120,7 +122,7 @@ set number relativenumber
 
 
 " Better colors
-" set termguicolors                    " Enable GUI colors for the terminal to get truecolor
+" set termguicolors
 
 " set Vim-specific sequences for RGB colors
 set termguicolors

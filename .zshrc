@@ -98,13 +98,9 @@ plugins=(git)
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # alias svim="sudo nvim"
-svim() {
-	vim sudo:$@
-}
+#
 
-ytdm() {
-	youtube-dl -f 140 "ytsearch1:$*"
-}
+source $HOME/.config/aliases.sh
 
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
 
@@ -148,7 +144,17 @@ compinit
 #     install_powerline_precmd
 # fi
 
+function capture_pwd_to_temp() {
+	if [ "$(pwd)" != "$HOME" ]; then
+	pwd > /tmp/cdc
+	fi
+}
 
+precmd_functions+=capture_pwd_to_temp
+
+function cdc() {
+	cd $(cat /tmp/cdc)
+}
 
 # Import colorscheme from 'wal' asynchronously
 # &   # Run the process in the background.
@@ -164,20 +170,6 @@ export KEYTIMEOUT=1
 
 #allow use of backspace in insert mode
 bindkey "^?" backward-delete-char
-
-#ALIASES
-
-# Edit i3conf
-alias i3vim='vim $HOME/.config/i3/config'
-# Use colors for grep
-alias grep='grep --color'
-# Use colors for ls
-alias ls='ls --color'
-# Always try to nest dirs
-alias mkdir='mkdir -pv'
-# Connect to mcsv
-alias mcssh='ssh -i .ssh/mcssh -l ninertominer 34.65.137.164'
-alias monikassh='ssh -l op -i .ssh/monikamc 34.89.237.250'
 
 # create a zkbd compatible hash;
 # to add other keys to this hash, see: man 5 terminfo

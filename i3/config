@@ -47,7 +47,7 @@ bindsym $mod+grave exec --no-startup-id $HOME/.config/scripts/toggle-picom.sh
 # APPS KEYBINDINGS
 # --------------------
 set $browser 		"gtk-launch chromium.desktop"
-set $file-explorer 	"gtk-launch thunar.desktop"
+set $file-explorer 	"gtk-launch nemo.desktop"
 
 bindsym		$mod+g exec --no-startup-id		$browser
 bindsym		$mod+t exec --no-startup-id		$file-explorer
@@ -116,6 +116,9 @@ client.placeholder      $bg     $bg     $fg  $bg       $bg
 
 client.background       $bg
 
+
+exec --no-startup-id export QT_STYLE_OVERRIDE=kvantum-dark
+set $QT_STYLE_OVERRIDE=kvantum-dark
 
 # }}}
 # Desktop Features Section {{{

@@ -187,7 +187,7 @@ label-urgent-padding = 2
 [module/mpd]
 type = internal/mpd
 format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
-format-underline = ${xrdb:color2:#4bffdc}
+format-online-underline = ${xrdb:color4:#f9ff00}
 
 icon-prev = 
 icon-stop = 
@@ -294,6 +294,7 @@ label = %date% %time%
 type = internal/pulseaudio
 
 format-volume = <label-volume> <bar-volume>
+format-volume-underline = ${xrdb:color5:#0a6cf5}
 label-volume = VOL %percentage%%
 label-volume-foreground = ${root.foreground}
 
