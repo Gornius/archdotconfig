@@ -20,3 +20,4 @@ discord/**
 !.conky/**
 !.conkyrc
 !.vim/**
+!.aliases.sh
