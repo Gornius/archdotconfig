@@ -18,3 +18,4 @@ discord/**
 !.conkyrc
 !.vim/**
 !aliases.sh
+!awesome/**
