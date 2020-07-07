@@ -119,7 +119,17 @@ set number relativenumber
     let g:airline_symbols.linenr = '☰'
     let g:airline_symbols.maxlinenr = ''
 "  }}}
-
+" QuickRun {{{
+au BufEnter *.cpp set makeprg=g++\ -g\ %\ -o\ %< 
+au BufEnter *.c set makeprg=gcc\ -g\ %\ -o\ %< 
+au BufEnter *.py set makeprg=python\ % 
+au BufEnter *.[rR] set makeprg=Rscript\ %
+map <F5> :call CompileGcc()<CR>
+func! CompileGcc()
+    exec "w" 
+    silent make
+endfunc
+" }}}
 
 " Tab size = 4
 set tabstop=4
@@ -184,6 +194,12 @@ vnoremap <leader>c "+c
 let g:livepreview_previewer = 'evince'
 let g:livepreview_engine = 'pdflatex'
 let g:livepreview_cursorhold_recompile = 0
+
+" Jump to last position in opent file
+autocmd BufReadPost *
+  \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+  \ |   exe "normal! g`\""
+  \ | endif
 " }}}
 " coc.nvim {{{
 " if hidden is not set, TextEdit might fail.
@@ -197,7 +213,7 @@ set nowritebackup
 set cmdheight=2
 
 " You will have bad experience for diagnostic messages when it's default 4000.
-set updatetime=300
+set updatetime=1000
 
 " don't give |ins-completion-menu| messages.
 set shortmess+=c

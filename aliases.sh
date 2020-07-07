@@ -9,7 +9,7 @@ alias i3vim='vim $HOME/.config/i3/config'
 # Edit nvim conf
 
 alias awvim='vim $HOME/.config/awesome/rc.lua'
-alias atvim='vim $HOME/.config/awesome/themes/steamburn/theme.lua'
+alias atvim='vim $HOME/.config/awesome/themes/gornburn/theme.lua'
 
 alias cvim='nvim $HOME/.config/nvim/init.vim'
 # Use colors for grep
@@ -35,6 +35,10 @@ vim() {
 # Download music from youtube
 ytdm() {
 	youtube-dl -f 140 "ytsearch1:$*"
+}
+
+:q() {
+exit
 }
 
 # Source private aliases (if file exists) 

@@ -8,6 +8,12 @@
     "lua": {
       "command": "lua-lsp",
       "filetypes": ["lua"]
+    },
+    "bash": {
+        "command": "bash-language-server",
+        "args": ["start"],
+        "filetypes": ["sh"],
+        "ignoredRootPaths": []
     }
   }
 }
