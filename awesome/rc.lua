@@ -68,7 +68,7 @@ local function run_once(cmd_arr)
     end
 end
 
-run_once({ "urxvtd", "unclutter -root", "redshift", "picom", "xfce4-clipman", "lxpolkit", "xss-lock --transfer-sleep-lock -- i3lock-fancy-rapid 20 5", "setxkbmap -option \"caps:escape\"", "nm-applet" }) -- entries must be separated by commas
+run_once({"redshift", "picom", "xfce4-clipman", "lxpolkit", "xss-lock --transfer-sleep-lock -- i3lock-fancy-rapid 20 5", "setxkbmap -option \"caps:escape\"", "nm-applet" }) -- entries must be separated by commas
 
 -- This function implements the XDG autostart specification
 --[[
@@ -96,7 +96,7 @@ local browser      = os.getenv("BROWSER") or "chromium"
 local scrlocker    = "i3lock-fancy-rapid 20 5"
 
 awful.util.terminal = terminal
-awful.util.tagnames = { "Task", "Terminal", "Web", "Toolbox", "Communication" }
+awful.util.tagnames = { "TASK", "TERM", "WEB", "TOOL", "MISC", "MESS"}
 awful.layout.layouts = {
     awful.layout.suit.tile,
     --awful.layout.suit.floating,
@@ -741,7 +741,7 @@ awful.rules.rules = {
       properties = { screen = 1, tag = awful.util.tagnames[3] } },
 
     { rule = { class = "discord" },
-      properties = { screen = 1, tag = awful.util.tagnames[5] } },
+      properties = { screen = 1, tag = awful.util.tagnames[6] } },
 
     { rule = { class = "Gimp", role = "gimp-image-window" },
           properties = { maximized = true } },

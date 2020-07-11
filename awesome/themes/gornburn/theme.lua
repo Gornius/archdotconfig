@@ -18,7 +18,7 @@ local theme                                     = {}
 theme.zenburn_dir                               = require("awful.util").get_themes_dir() .. "zenburn"
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/gornburn"
 theme.wallpaper                                 = theme.dir .. "/wal.jpg"
-theme.font                                      = "Roboto Medium 11"
+theme.font                                      = "Roboto Black 12"
 theme.fg_normal                                 = "#e2ccb0"
 theme.fg_focus                                  = "#d88166"
 theme.fg_urgent                                 = "#CC9393"
@@ -125,34 +125,34 @@ theme.mail = lain.widget.imap({
 --]]
 
 -- MPD
-theme.mpd = lain.widget.mpd({
-    settings = function()
-        artist = mpd_now.artist .. " "
-        title  = mpd_now.title  .. " "
-
-        if mpd_now.state == "pause" then
-            artist = "mpd "
-            title  = "paused "
-        elseif mpd_now.state == "stop" then
-            artist = ""
-            title  = ""
-        end
-
-        widget:set_markup(markup.font(theme.font, markup(gray, artist) .. title))
-    end
-})
+-- theme.mpd = lain.widget.mpd({
+--     settings = function()
+--         artist = mpd_now.artist .. " "
+--         title  = mpd_now.title  .. " "
+-- 
+--         if mpd_now.state == "pause" then
+--             artist = "mpd "
+--             title  = "paused "
+--         elseif mpd_now.state == "stop" then
+--             artist = ""
+--             title  = ""
+--         end
+-- 
+--         widget:set_markup(markup.font(theme.font, markup(gray, artist) .. title))
+--     end
+-- })
 
 -- CPU
 local cpu = lain.widget.cpu({
     settings = function()
-        widget:set_markup(markup.font(theme.font, markup(gray, " Cpu ") .. cpu_now.usage .. " "))
+        widget:set_markup(markup.font(theme.font, markup(gray, " Cpu ") .. cpu_now.usage .. "%"))
     end
 })
 
 -- MEM
 local mem = lain.widget.mem({
     settings = function()
-        widget:set_markup(markup.font(theme.font, markup(gray, " Mem ") .. mem_now.used .. " "))
+        widget:set_markup(markup.font(theme.font, markup(gray, " Mem ") .. mem_now.used .. "Mi"))
     end
 })
 
@@ -169,18 +169,18 @@ local bat = lain.widget.bat({
     settings = function()
         local perc = bat_now.perc
         if bat_now.ac_status == 1 then perc = perc .. " Plug" end
-        widget:set_markup(markup.font(theme.font, markup(gray, " Bat ") .. perc .. " "))
+        widget:set_markup(markup.font(theme.font, markup(gray, " Bat ") .. perc .. "%"))
     end
 })
 
 -- Net checker
-local net = lain.widget.net({
-    settings = function()
-        if net_now.state == "up" then net_state = "On"
-        else net_state = "Off" end
-        widget:set_markup(markup.font(theme.font, markup(gray, " Net ") .. net_state .. " "))
-    end
-})
+-- local net = lain.widget.net({
+--     settings = function()
+--         if net_now.state == "up" then net_state = "On"
+--         else net_state = "Off" end
+--         widget:set_markup(markup.font(theme.font, markup(gray, " Net ") .. net_state .. " "))
+--     end
+-- })
 
 -- ALSA volume
 theme.volume = lain.widget.alsa({
@@ -196,14 +196,23 @@ theme.volume = lain.widget.alsa({
 
         widget:set_markup(markup.font(theme.font, markup(gray, header) .. vlevel))
     end,
-    timeout = 1
+    timeout = 3
 
 })
 
+--theme.volume = lain.widget.pulse {
+--    settings = function()
+--        vlevel = volume_now.left .. "-" .. volume_now.right .. "% | " .. volume_now.device
+--        if volume_now.muted == "yes" then
+--            vlevel = vlevel .. " M"
+--        end
+--        widget:set_markup(lain.util.markup("#7493d2", vlevel))
+--    end
+--}
 -- Weather
-theme.weather = lain.widget.weather({
-    city_id = 2643743, -- placeholder (London)
-})
+-- theme.weather = lain.widget.weather({
+--     city_id = 2643743, -- placeholder (London)
+-- })
 
 -- Separators
 local first = wibox.widget.textbox(markup.font("Terminus 4", " "))
@@ -295,12 +304,12 @@ function theme.at_screen_connect(s)
             spr,
             theme.volume.widget,
             spr,
-            theme.mpd.widget,
-            --theme.mail.widget,
+            -- theme.mpd.widget,
+            -- theme.mail.widget,
             cpu.widget,
             mem.widget,
             bat.widget,
-            net.widget,
+            -- net.widget,
             mytextclock,
         },
     }

@@ -19,3 +19,5 @@ discord/**
 !.vim/**
 !aliases.sh
 !awesome/**
+!qtile/**
+!autostart.sh
