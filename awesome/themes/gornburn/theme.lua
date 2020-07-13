@@ -84,6 +84,24 @@ theme.notification_icon_size                    = 96
 theme.layout_txt_termfair                       = "[termfair]"
 theme.layout_txt_centerfair                     = "[centerfair]"
 
+-- Layout icons
+theme.layout_fairh = theme.dir.."/layouts/fairhw.png"
+theme.layout_fairv = theme.dir.."/layouts/fairvw.png"
+theme.layout_floating  = theme.dir.."/layouts/floatingw.png"
+theme.layout_magnifier = theme.dir.."/layouts/magnifierw.png"
+theme.layout_max = theme.dir.."/layouts/maxw.png"
+theme.layout_fullscreen = theme.dir.."/layouts/fullscreenw.png"
+theme.layout_tilebottom = theme.dir.."/layouts/tilebottomw.png"
+theme.layout_tileleft   = theme.dir.."/layouts/tileleftw.png"
+theme.layout_tile = theme.dir.."/layouts/tilew.png"
+theme.layout_tiletop = theme.dir.."/layouts/tiletopw.png"
+theme.layout_spiral  = theme.dir.."/layouts/spiralw.png"
+theme.layout_dwindle = theme.dir.."/layouts/dwindlew.png"
+theme.layout_cornernw = theme.dir.."/layouts/cornernww.png"
+theme.layout_cornerne = theme.dir.."/layouts/cornernew.png"
+theme.layout_cornersw = theme.dir.."/layouts/cornersww.png"
+theme.layout_cornerse = theme.dir.."/layouts/cornersew.png"
+
 -- beautiful
 
 local markup = lain.util.markup
@@ -169,7 +187,7 @@ local bat = lain.widget.bat({
     settings = function()
         local perc = bat_now.perc
         if bat_now.ac_status == 1 then perc = perc .. " Plug" end
-        widget:set_markup(markup.font(theme.font, markup(gray, " Bat ") .. perc .. "%"))
+        widget:set_markup(markup.font(theme.font, markup(gray, " Bat ") .. perc))
     end
 })
 
@@ -281,6 +299,16 @@ function theme.at_screen_connect(s)
 
     -- Create a tasklist widget
     s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, awful.util.tasklist_buttons)
+
+    -- Create layoutbox widget
+
+    s.mylayoutbox = awful.widget.layoutbox(s)
+    s.mylayoutbox:buttons(gears.table.join(
+                           awful.button({ }, 1, function () awful.layout.inc( 1) end),
+                           awful.button({ }, 3, function () awful.layout.inc(-1) end),
+                           awful.button({ }, 4, function () awful.layout.inc( 1) end),
+                           awful.button({ }, 5, function () awful.layout.inc(-1) end)))
+
     -- Create the wibox
     s.mywibox = awful.wibar({ position = "top", screen = s, height = dpi(18)})
 
@@ -290,9 +318,9 @@ function theme.at_screen_connect(s)
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
             first,
-            s.mytaglistcont,
+            s.mylayoutbox,
             spr,
-            s.mytxtlayoutbox,
+            s.mytaglistcont,
             --spr,
             s.mypromptbox,
             spr,

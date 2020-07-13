@@ -68,7 +68,7 @@ local function run_once(cmd_arr)
     end
 end
 
-run_once({"redshift", "picom", "xfce4-clipman", "lxpolkit", "xss-lock --transfer-sleep-lock -- i3lock-fancy-rapid 20 5", "setxkbmap -option \"caps:escape\"", "nm-applet" }) -- entries must be separated by commas
+-- run_once({os.getenv("HOME") .. "/.config/autostart.sh"})
 
 -- This function implements the XDG autostart specification
 --[[
@@ -79,7 +79,6 @@ awful.spawn.with_shell(
     'dex --environment Awesome --autostart --search-paths "$XDG_CONFIG_DIRS/autostart:$XDG_CONFIG_HOME/autostart"' -- https://github.com/jceb/dex
 )
 --]]
-
 -- }}}
 
 -- {{{ Variable definitions
@@ -325,6 +324,26 @@ globalkeys = my_table.join(
         {description = "focus right", group = "client"}),
     awful.key({ modkey,           }, "w", function () awful.util.mymainmenu:show() end,
               {description = "show main menu", group = "awesome"}),
+
+
+    -- Floating windows manipulation
+    awful.key({ modkey,           }, "u", function() client.focus:relative_move(-20, 0, 0, 0) end,
+              {description = "Move left", group ="floating"}),
+    awful.key({ modkey,           }, "i", function() client.focus:relative_move(0, 20, 0, 0) end,
+              {description = "Move down", group ="floating"}),
+    awful.key({ modkey,           }, "o", function() client.focus:relative_move(0, -20, 0, 0) end,
+              {description = "Move up", group ="floating"}),
+    awful.key({ modkey,           }, "p", function() client.focus:relative_move(20, 0, 0, 0) end,
+              {description = "Move right", group ="floating"}),
+
+    awful.key({ modkey, "Shift",           }, "u", function() client.focus:relative_move(0, 0, -20, 0) end,
+              {description = "Decrease width", group ="floating"}),
+    awful.key({ modkey, "Shift",           }, "i", function() client.focus:relative_move(0, 0, 0, -20) end,
+              {description = "Decrease height", group ="floating"}),
+    awful.key({ modkey, "Shift",           }, "o", function() client.focus:relative_move(0, 0, 0, 20) end,
+              {description = "Increase height", group ="floating"}),
+    awful.key({ modkey, "Shift",           }, "p", function() client.focus:relative_move(0, 0, 20, 0) end,
+              {description = "Increase width", group ="floating"}),
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
@@ -696,7 +715,7 @@ clientbuttons = gears.table.join(
         c:emit_signal("request::activate", "mouse_click", {raise = true})
         awful.mouse.client.move(c)
     end),
-    awful.button({ modkey }, 3, function (c)
+    awful.button({ modkey, "Shift" }, 1, function (c)
         c:emit_signal("request::activate", "mouse_click", {raise = true})
         awful.mouse.client.resize(c)
     end)
