@@ -22,3 +22,4 @@ discord/**
 !qtile/**
 !autostart.sh
 !rofi/**
+!fish/**
