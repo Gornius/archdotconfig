@@ -18,7 +18,7 @@ local theme                                     = {}
 theme.zenburn_dir                               = require("awful.util").get_themes_dir() .. "zenburn"
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/gornburn"
 theme.wallpaper                                 = theme.dir .. "/wal.jpg"
-theme.font                                      = "Roboto Black 12"
+theme.font                                      = "PT Sans Narrow Bold 12"
 theme.fg_normal                                 = "#e2ccb0"
 theme.fg_focus                                  = "#d88166"
 theme.fg_urgent                                 = "#CC9393"
@@ -184,9 +184,10 @@ theme.fs = lain.widget.fs({
 
 -- Battery
 local bat = lain.widget.bat({
+    timeout = 30,
     settings = function()
-        local perc = bat_now.perc
-        if bat_now.ac_status == 1 then perc = perc .. " Plug" end
+        local perc = bat_now.perc .. "%"
+        if bat_now.ac_status == 1 then perc = perc .. " A/C" end
         widget:set_markup(markup.font(theme.font, markup(gray, " Bat ") .. perc))
     end
 })
@@ -207,9 +208,9 @@ theme.volume = lain.widget.alsa({
         vlevel  = volume_now.level .. "%"
 
         if volume_now.status == "off" then
-            vlevel = vlevel .. "M "
+            vlevel = vlevel .. "M"
         else
-            vlevel = vlevel .. " "
+            vlevel = vlevel .. ""
         end
 
         widget:set_markup(markup.font(theme.font, markup(gray, header) .. vlevel))
@@ -234,7 +235,7 @@ theme.volume = lain.widget.alsa({
 
 -- Separators
 local first = wibox.widget.textbox(markup.font("Terminus 4", " "))
-local spr   = wibox.widget.textbox(' ')
+local spr   = wibox.widget.textbox('  ')
 
 local function update_txt_layoutbox(s)
     -- Writes a string representation of the current layout in a textbox widget
@@ -328,17 +329,15 @@ function theme.at_screen_connect(s)
         s.mytasklist,
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            wibox.widget.systray(),
-            spr,
-            theme.volume.widget,
-            spr,
-            -- theme.mpd.widget,
-            -- theme.mail.widget,
-            cpu.widget,
-            mem.widget,
-            bat.widget,
-            -- net.widget,
-            mytextclock,
+            wibox.widget.systray(), spr,
+            theme.volume.widget, spr,
+            -- theme.mpd.widget, spr,
+            -- theme.mail.widget, spr,
+            cpu.widget, spr,
+            mem.widget, spr,
+            bat.widget, spr,
+            -- net.widget, spr,
+            mytextclock, first,
         },
     }
 end

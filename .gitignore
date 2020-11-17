@@ -21,3 +21,4 @@ discord/**
 !awesome/**
 !qtile/**
 !autostart.sh
+!rofi/**

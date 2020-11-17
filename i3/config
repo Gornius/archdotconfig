@@ -79,6 +79,7 @@ assign [title="Steam"] $ws4
 
 # Set gaps
 gaps inner 10 
+smart_gaps on
 
 # Launch polybar (req: polybar) (moved to i3 blocks)
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh

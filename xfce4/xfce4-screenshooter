@@ -1,8 +1,8 @@
 app=feh
 last_user=
 screenshot_dir=file:/home/cisu
-action=2
+action=8
 delay=0
-region=1
+region=2
 show_mouse=1
 
