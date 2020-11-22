@@ -40,3 +40,7 @@ set fish_greeting ""
 function :q
     exit
 end
+
+function svim
+    vim sudo:$argv
+end

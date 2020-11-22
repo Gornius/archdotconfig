@@ -71,7 +71,8 @@ function fish_prompt
         set arrow "$arrow_color# "
     end
 
-    set -l cwd $cyan(basename (prompt_pwd))
+    set fish_prompt_pwd_dir_length 0
+    set -l cwd $cyan(prompt_pwd)
 
     if set -l repo_type (_repo_type)
         set -l repo_branch $red(_repo_branch_name $repo_type)
@@ -84,5 +85,5 @@ function fish_prompt
         end
     end
 
-    echo -n -s $arrow ' '$cwd $repo_info $normal ' '
+    echo -n -s -e ' ' $cwd $repo_info $normal '\n ' $arrow ' '
 end
